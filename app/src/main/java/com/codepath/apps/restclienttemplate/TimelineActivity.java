@@ -50,6 +50,10 @@ public class TimelineActivity extends AppCompatActivity {
         View timelineView = timelineBinding.getRoot();
         setContentView(timelineView);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_launcher_twitter_round);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         client = TwitterApp.getRestClient(this);
 
         swipeContainer = timelineBinding.swipeContainer;
