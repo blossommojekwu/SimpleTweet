@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.codepath.apps.restclienttemplate.databinding.ActivityComposeBinding;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 
@@ -32,12 +33,16 @@ public class ComposeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_compose);
+        ActivityComposeBinding composeBinding = ActivityComposeBinding.inflate(getLayoutInflater());
+
+        //layout of activity is stored in a special property called root
+        View composeView = composeBinding.getRoot();
+        setContentView(composeView);
 
         client = TwitterApp.getRestClient(this);
 
-        etCompose = findViewById(R.id.etCompose);
-        btnTweet = findViewById(R.id.btnTweet);
+        etCompose = composeBinding.etCompose;
+        btnTweet = composeBinding.btnTweet;
 
         //set click listener on button
         btnTweet.setOnClickListener(new View.OnClickListener() {

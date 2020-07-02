@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.codepath.apps.restclienttemplate.databinding.ActivityTimelineBinding;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 
@@ -40,15 +41,18 @@ public class TimelineActivity extends AppCompatActivity {
     SwipeRefreshLayout swipeContainer;
     EndlessRecyclerViewScrollListener scrollListener;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_timeline);
+        ActivityTimelineBinding timelineBinding = ActivityTimelineBinding.inflate(getLayoutInflater());
+
+        //layout of activity stored in special property called root
+        View timelineView = timelineBinding.getRoot();
+        setContentView(timelineView);
 
         client = TwitterApp.getRestClient(this);
 
-        swipeContainer = findViewById(R.id.swipeContainer);
+        swipeContainer = timelineBinding.swipeContainer;
         // Configure the refreshing colors
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light,
@@ -63,7 +67,7 @@ public class TimelineActivity extends AppCompatActivity {
         });
 
         //find the recyclerview
-        rvTweets = findViewById(R.id.rvTweets);
+        rvTweets = timelineBinding.rvTweets;
         //initialize the list of tweets and adapter
         tweets = new ArrayList<>();
         adapter = new TweetsAdapter(this, tweets);
@@ -106,10 +110,6 @@ public class TimelineActivity extends AppCompatActivity {
                                            Log.e(TAG,"onFailure for loadMoreData", throwable);
                                        }
                                    }, tweets.get(tweets.size()-1).id);
-                //  --> Send the request including an offset value (i.e `page`) as a query parameter.
-                //  --> Deserialize and construct new model objects from the API response
-                //  --> Append the new data objects to the existing set of items inside the array of items
-                //  --> Notify the adapter of the new items made with `notifyItemRangeInserted()`
     }
 
 
