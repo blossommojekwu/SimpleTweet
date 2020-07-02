@@ -18,6 +18,7 @@ public class Tweet {
 
     public String body;
     public String createdAt;
+    public long id;
     public User user;
 
     //empty constructor needed by the Parceler library
@@ -28,6 +29,7 @@ public class Tweet {
         Tweet tweet = new Tweet();
         tweet.body = jsonObject.getString("text");
         tweet.createdAt = getRelativeTimeAgo(jsonObject.getString("created_at"));
+        tweet.id = jsonObject.getLong("id");
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
         return tweet;
     }
