@@ -51,10 +51,10 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
     TextView tvFavorites;
     ImageView ivEmbeddedMedia;
 
-    //for each row, inflate layout for tweet
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         Log.d("TweetsAdapter", "onCreateViewHolder");
         ItemTweetBinding itemTweetBinding = ItemTweetBinding.inflate(LayoutInflater.from(context));
         View tweetView = itemTweetBinding.getRoot();
@@ -142,7 +142,6 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
                 ivEmbeddedMedia.setVisibility(View.VISIBLE);
                 Glide.with(context).load(mediaURl).transform(new CenterInside(),new RoundedCorners(imgRadius)).into(ivEmbeddedMedia);
             }
-
         }
     }
 }
