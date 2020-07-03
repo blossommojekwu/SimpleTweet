@@ -16,6 +16,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ComposeActivity"></activity>
         <activity android:name=".TimelineActivity" />
+        <activity android:name=".TweetDetailsActivity"/>
         <activity
             android:name=".LoginActivity"
             android:icon="@drawable/ic_launcher_twitter_round"

@@ -33,12 +33,12 @@
         android:id="@+id/tvScreenName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
         android:layout_toEndOf="@+id/ivProfileImage"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@color/twitter_black"
-        app:layout_constraintStart_toEndOf="@+id/ivProfileImage"
-        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/twitter_lightgray"
+        app:layout_constraintStart_toEndOf="@+id/tvName"
+        app:layout_constraintTop_toTopOf="@+id/tvName"
         tools:text="blossomsm1" />
 
     <TextView
@@ -51,7 +51,6 @@
         android:layout_toEndOf="@+id/ivProfileImage"
         android:autoLink="all"
         android:linksClickable="true"
-        android:maxLength="300dp"
         android:textColor="@color/twitter_black"
         app:layout_constraintStart_toEndOf="@+id/ivProfileImage"
         app:layout_constraintTop_toBottomOf="@+id/tvScreenName"
@@ -71,35 +70,31 @@
         android:id="@+id/btnComment"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="76dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="96dp"
         android:background="@drawable/ic_vector_compose_dm"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnRetweet"
-        app:layout_constraintTop_toBottomOf="@+id/tvBody"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/ivEmbeddedMedia" />
 
     <Button
         android:id="@+id/btnRetweet"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="96dp"
         android:background="@drawable/ic_vector_retweet_stroke"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnFavorite"
-        app:layout_constraintTop_toBottomOf="@+id/tvBody"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/ivEmbeddedMedia" />
 
     <Button
         android:id="@+id/btnFavorite"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="44dp"
         android:background="@drawable/ic_vector_heart_stroke"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvBody" />
+        app:layout_constraintEnd_toEndOf="@+id/tvBody"
+        app:layout_constraintTop_toBottomOf="@+id/ivEmbeddedMedia" />
 
     <TextView
         android:id="@+id/tvFavorites"
@@ -118,5 +113,27 @@
         android:text="100"
         app:layout_constraintStart_toEndOf="@+id/btnRetweet"
         app:layout_constraintTop_toTopOf="@+id/btnRetweet" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Blossom"
+        android:textColor="@color/twitter_black"
+        app:layout_constraintStart_toEndOf="@+id/ivProfileImage"
+        app:layout_constraintTop_toTopOf="@+id/ivProfileImage" />
+
+    <ImageView
+        android:id="@+id/ivEmbeddedMedia"
+        android:visibility="gone"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/ivProfileImage"
+        app:layout_constraintTop_toBottomOf="@+id/tvBody"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

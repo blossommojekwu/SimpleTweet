@@ -13,16 +13,6 @@
     app:layout_constraintTop_toTopOf="parent"
     tools:context=".ComposeActivity">
 
-    <Button
-        android:id="@+id/btnTweet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/twitter_blue"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/tweet"
-        android:textColor="@color/white" />
-
     <EditText
         android:id="@+id/etCompose"
         android:layout_width="match_parent"
@@ -32,5 +22,15 @@
         android:hint="@string/whats_happening"
         android:inputType="textMultiLine"
         android:minLines="5" />
+
+    <Button
+        android:id="@+id/btnTweet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:backgroundTint="@color/twitter_blue"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/tweet"
+        android:textColor="@color/white" />
 
 </com.google.android.material.textfield.TextInputLayout>

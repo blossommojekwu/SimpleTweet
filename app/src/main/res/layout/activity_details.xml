@@ -1,6 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/Tweet"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/tweet"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="36sp"
+        app:layout_constraintStart_toEndOf="@+id/btnBack"
+        app:layout_constraintTop_toTopOf="@+id/btnBack" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_launcher_twitter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivDetailsProfile"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBack"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvDetailsName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Blossom"
+        android:textColor="@color/twitter_black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/ivDetailsProfile"
+        app:layout_constraintTop_toBottomOf="@+id/Tweet" />
+
+    <TextView
+        android:id="@+id/tvDetailsScreenname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="56dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/tvDetailsName"
+        app:layout_constraintTop_toBottomOf="@+id/Tweet" />
+
+    <TextView
+        android:id="@+id/tvDetailsTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="56dp"
+        android:text="8h"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/tvDetailsScreenname"
+        app:layout_constraintTop_toBottomOf="@+id/Tweet" />
+
+    <TextView
+        android:id="@+id/tvDetailsBody"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="9dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/whats_happening"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/twitter_black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/ivDetailsProfile"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailsName" />
+
+    <Button
+        android:id="@+id/btnDetailsComment"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="90dp"
+        android:background="@drawable/ic_vector_compose_dm"
+        app:layout_constraintEnd_toStartOf="@+id/btnDetailsRetweet"
+        app:layout_constraintTop_toBottomOf="@+id/ivDetailsMedia" />
+
+    <Button
+        android:id="@+id/btnDetailsRetweet"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="90dp"
+        android:background="@drawable/ic_vector_retweet_stroke"
+        android:backgroundTint="@color/twitter_blue_fill_pressed"
+        app:layout_constraintEnd_toStartOf="@+id/btnDetailsFavorite"
+        app:layout_constraintTop_toBottomOf="@+id/ivDetailsMedia" />
+
+    <Button
+        android:id="@+id/btnDetailsFavorite"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/ic_vector_heart_stroke"
+        android:backgroundTint="@color/medium_red"
+        app:layout_constraintEnd_toEndOf="@+id/tvDetailsBody"
+        app:layout_constraintTop_toTopOf="@+id/btnDetailsRetweet" />
+
+    <TextView
+        android:id="@+id/tvDetailsRetweets"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="5dp"
+        android:text="100"
+        app:layout_constraintStart_toEndOf="@+id/btnDetailsRetweet"
+        app:layout_constraintTop_toTopOf="@+id/btnDetailsRetweet" />
+
+    <TextView
+        android:id="@+id/tvDetailsFavorites"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="3dp"
+        android:text="100"
+        app:layout_constraintStart_toEndOf="@+id/btnDetailsFavorite"
+        app:layout_constraintTop_toTopOf="@+id/btnDetailsFavorite" />
+
+    <ImageView
+        android:id="@+id/ivDetailsMedia"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/tvDetailsBody"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailsBody"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -116,7 +116,6 @@ public class TimelineActivity extends AppCompatActivity {
                                    }, tweets.get(tweets.size()-1).id);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -170,7 +169,6 @@ public class TimelineActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
                 Log.e(TAG, "onFailure " + response, throwable); //{"errors":[{"message":"Sorry, that page does not exist","code":34}]}
-
             }
         });
     }

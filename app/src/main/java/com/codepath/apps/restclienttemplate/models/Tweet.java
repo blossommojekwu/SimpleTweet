@@ -1,6 +1,7 @@
 package com.codepath.apps.restclienttemplate.models;
 
 import android.text.format.DateUtils;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,6 +23,7 @@ public class Tweet {
     public User user;
     public String retweetCount;
     public String favoriteCount;
+    public String embeddedMediaURL;
 
     //empty constructor needed by the Parceler library
     public Tweet(){
@@ -35,6 +37,11 @@ public class Tweet {
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
         tweet.retweetCount = String.valueOf(jsonObject.getInt("retweet_count"));
         tweet.favoriteCount = String.valueOf(jsonObject.getInt("favorite_count"));
+        if (jsonObject.getJSONObject("entities").has("media")){
+            if (jsonObject.getJSONObject("entities").getJSONArray("media").getJSONObject(0).has("media_url_https")){
+                tweet.embeddedMediaURL = jsonObject.getJSONObject("entities").getJSONArray("media").getJSONObject(0).getString("media_url_https");
+            }
+        }
         return tweet;
     }
 
@@ -63,4 +70,31 @@ public class Tweet {
         return relativeDate;
     }
 
+    public String getBody() {
+        return body;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public String getRetweetCount() {
+        return retweetCount;
+    }
+
+    public String getFavoriteCount() {
+        return favoriteCount;
+    }
+
+    public String getEmbeddedMediaURL() {
+        return embeddedMediaURL;
+    }
 }
