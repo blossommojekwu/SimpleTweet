@@ -139,7 +139,7 @@
 
     <ImageView
         android:id="@+id/ivDetailsMedia"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:layout_width="250dp"
         android:layout_height="214dp"
         android:layout_marginTop="24dp"
