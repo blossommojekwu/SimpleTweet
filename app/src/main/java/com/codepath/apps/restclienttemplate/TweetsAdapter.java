@@ -9,25 +9,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.CenterInside;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import com.bumptech.glide.request.RequestOptions;
 import com.codepath.apps.restclienttemplate.databinding.ItemTweetBinding;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import org.parceler.Parcels;
 
 import java.util.List;
-
-import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder> {
     //pass in context and list of tweets
@@ -39,18 +34,6 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         this.tweets = tweets;
     }
 
-    ImageView ivProfileImage;
-    TextView tvBody;
-    TextView tvName;
-    TextView tvScreenName;
-    TextView tvTimeAgo;
-    Button btnComment;
-    Button btnRetweet;
-    Button btnFavorite;
-    TextView tvRetweets;
-    TextView tvFavorites;
-    ImageView ivEmbeddedMedia;
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -58,19 +41,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         Log.d("TweetsAdapter", "onCreateViewHolder");
         ItemTweetBinding itemTweetBinding = ItemTweetBinding.inflate(LayoutInflater.from(context));
         View tweetView = itemTweetBinding.getRoot();
-
-        ivProfileImage = itemTweetBinding.ivProfileImage;
-        tvBody = itemTweetBinding.tvBody;
-        tvName = itemTweetBinding.tvName;
-        tvScreenName = itemTweetBinding.tvScreenName;
-        tvTimeAgo = itemTweetBinding.tvTimeAgo;
-        btnComment = itemTweetBinding.btnComment;
-        btnRetweet = itemTweetBinding.btnRetweet;
-        btnFavorite = itemTweetBinding.btnFavorite;
-        tvRetweets = itemTweetBinding.tvRetweets;
-        tvFavorites = itemTweetBinding.tvFavorites;
-        ivEmbeddedMedia = itemTweetBinding.ivEmbeddedMedia;
-        return new ViewHolder(tweetView);
+        return new ViewHolder(tweetView, itemTweetBinding);
     }
 
     //bind values based on position of element
@@ -103,9 +74,33 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
     //define a viewholder
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        public ViewHolder(@NonNull View itemView) {
+        ImageView ivProfileImage;
+        TextView tvBody;
+        TextView tvName;
+        TextView tvScreenName;
+        TextView tvTimeAgo;
+        Button btnComment;
+        Button btnRetweet;
+        Button btnFavorite;
+        TextView tvRetweets;
+        TextView tvFavorites;
+        ImageView ivEmbeddedMedia;
+
+        public ViewHolder(@NonNull View itemView, ItemTweetBinding itemTweetBinding) {
             super(itemView);
-            itemView.setOnClickListener(this);
+            View tweetView = itemTweetBinding.getRoot();
+            ivProfileImage = itemTweetBinding.ivProfileImage;
+            tvBody = itemTweetBinding.tvBody;
+            tvName = itemTweetBinding.tvName;
+            tvScreenName = itemTweetBinding.tvScreenName;
+            tvTimeAgo = itemTweetBinding.tvTimeAgo;
+            btnComment = itemTweetBinding.btnComment;
+            btnRetweet = itemTweetBinding.btnRetweet;
+            btnFavorite = itemTweetBinding.btnFavorite;
+            tvRetweets = itemTweetBinding.tvRetweets;
+            tvFavorites = itemTweetBinding.tvFavorites;
+            ivEmbeddedMedia = itemTweetBinding.ivEmbeddedMedia;
+            tweetView.setOnClickListener(this);
         }
 
         //when the user clicks on a row, show Details Activity for the selected tweet

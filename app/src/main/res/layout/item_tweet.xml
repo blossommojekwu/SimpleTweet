@@ -38,8 +38,7 @@
         android:fontFamily="sans-serif"
         android:textColor="@color/twitter_lightgray"
         app:layout_constraintStart_toEndOf="@+id/tvName"
-        app:layout_constraintTop_toTopOf="@+id/tvName"
-        tools:text="blossomsm1" />
+        app:layout_constraintTop_toTopOf="@+id/tvName"/>
 
     <TextView
         android:id="@+id/tvBody"
@@ -120,7 +119,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:fontFamily="sans-serif-black"
-        android:text="Blossom"
         android:textColor="@color/twitter_black"
         app:layout_constraintStart_toEndOf="@+id/ivProfileImage"
         app:layout_constraintTop_toTopOf="@+id/ivProfileImage" />

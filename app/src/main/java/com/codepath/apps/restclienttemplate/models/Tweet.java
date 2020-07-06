@@ -37,6 +37,7 @@ public class Tweet {
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
         tweet.retweetCount = String.valueOf(jsonObject.getInt("retweet_count"));
         tweet.favoriteCount = String.valueOf(jsonObject.getInt("favorite_count"));
+        //get embedded media in entities under media
         if (jsonObject.getJSONObject("entities").has("media")){
             if (jsonObject.getJSONObject("entities").getJSONArray("media").getJSONObject(0).has("media_url_https")){
                 tweet.embeddedMediaURL = jsonObject.getJSONObject("entities").getJSONArray("media").getJSONObject(0).getString("media_url_https");

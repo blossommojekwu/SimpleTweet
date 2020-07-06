@@ -81,6 +81,8 @@
         android:fontFamily="sans-serif"
         android:text="@string/whats_happening"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:autoLink="all"
+        android:linksClickable="true"
         android:textColor="@color/twitter_black"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/ivDetailsProfile"

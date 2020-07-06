@@ -34,7 +34,6 @@ public class ComposeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityComposeBinding composeBinding = ActivityComposeBinding.inflate(getLayoutInflater());
-
         //layout of activity is stored in a special property called root
         View composeView = composeBinding.getRoot();
         setContentView(composeView);
@@ -83,10 +82,7 @@ public class ComposeActivity extends AppCompatActivity {
                         Log.e(TAG, "onFailure to publish tweet", throwable);
                     }
                 });
-
-
             }
         });
-
     }
 }
